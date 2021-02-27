@@ -69,6 +69,20 @@ window.onload = function () {
         return span
     }
 
+    // Task searching 
+    addItem.addEventListener('keyup', () => {
+        const parent = document.querySelector('.tasksBoardUl');
+        const div = parent.querySelectorAll('div')
+        const li = parent.querySelectorAll('li')
+        for (let i = 0; i < tasksBoard.childNodes.length; i++){
+            if (!li[i].innerHTML.includes(inputField.value)) {
+                div[i].style.display = 'none'
+            } else {
+                div[i].style.display = 'block'
+            }
+        }
+    })
+
     // added a addEventListener which remove all item 
     removeItem.addEventListener('click', (event) => {
         const tasksBoardUl = document.querySelector('.tasksBoardUl'); 
