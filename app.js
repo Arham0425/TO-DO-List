@@ -85,11 +85,11 @@ window.onload = function () {
 
     // added a addEventListener which remove all item 
     removeItem.addEventListener('click', (event) => {
-        const tasksBoardUl = document.querySelector('.tasksBoardUl'); 
-        tasksBoardUl.childNodes.forEach(childDiv => {
-            tasksBoardUl.removeChild(childDiv)
-        })
-        event.stopPropagation()
+        const allDiv = document.querySelectorAll('.tasksBoardUl div');
+        for (let i = 0; i < allDiv.length; i++){
+            let node = allDiv.item([i]);
+            node.parentNode.removeChild(node);
+        }
     })
 
 }
